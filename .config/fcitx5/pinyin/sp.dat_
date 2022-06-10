@@ -1,0 +1,53 @@
+[方案]
+  方案名称=自定义
+
+[零声母标识]
+  =O*
+
+
+[声母]
+# 双拼编码就是它本身的声母不必列出
+  zh=V
+  ch=I
+  sh=U
+
+
+[韵母]
+# 双拼编码就是它本身的韵母不必列出
+
+  ai=X
+  ei=C
+  ui=V
+
+  ia=M
+  ua=M
+  ie=N
+  iu=B
+
+  an=S
+  en=D
+  in=F
+  un=G
+
+  ang=L
+  eng=K
+  ing=J
+  ong=H
+  iong=H
+
+  ian=T
+  uan=R
+  iang=Y
+  uang=Y
+
+  ao=Q
+  ou=P
+  uo=O
+  iao=W
+  uai=W
+  ue=Z
+  ve=Z
+
+  er=R
+
+

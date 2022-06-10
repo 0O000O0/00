@@ -1,0 +1,73 @@
+# ALACRITTY config, the gpu enhanced terminal emulator.
+
+
+import:
+  # Import additional configuration files
+  #
+  # Imports are loaded in order, skipping all missing files,
+  # with the importing file being loaded last.
+  # If a field is already present in a previous import,
+  # it will be replaced.
+  #
+  # All imports must either be absolute paths starting with `/`,
+  # or paths relative to the user's home directory starting with `~/`.
+  #
+  #  - /path/to/alacritty.yml
+  - ~/.config/alacritty/keymap.yml
+  - ~/.config/alacritty/color.yml
+  - ~/.config/alacritty/window.yml
+  - ~/.config/alacritty/setting.yml
+
+#env:
+  # Any items in `env` entry below will be added as environment variables.
+  # Some entries may override variables set by alacritty itself.
+  #
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  #TERM: alacritty
+
+#shell:
+  # You can set `shell.program` to the path of your favorite shell, e.g.
+  # `/bin/fish`.
+  # Entries in `shell.args` are passed unmodified as arguments to the shell.
+  #
+  # Default:
+  #   - (macOS) /bin/bash --login
+  #   - (Linux/BSD) user login shell
+  #   - (Windows) powershell
+  #
+  #program: /bin/fish
+  #args:
+  #  - --login
+
+# variable
+  #
+
+  # Live config reload (changes require restart)
+  #
+  #live_config_reload: true
+
+  # Send ESC (\x1b) before characters when alt is pressed.
+  #
+  #alt_send_esc: true
+
+  # Startup directory
+  #
+  # Directory the shell is started in. If this is unset, or `None`,
+  # the working directory of the parent process will be used.
+  #working_directory: None
+
+  # selection
+  #
+  # This string contains all characters that are used as separators for
+  # "semantic words" in Alacritty.
+  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  #
+  # When set to `true`, selected text will be copied to primary clipboard.
+  #save_to_clipboard: false
+
+

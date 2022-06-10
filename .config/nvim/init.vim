@@ -1,0 +1,11 @@
+" NEOVIM config, a text editor based on vim.
+
+
+"source $VIMRUNTIME/defaults.vim
+
+source ~/.config/nvim/00/setting.vim
+source ~/.config/nvim/00/keymap.vim
+source ~/.config/nvim/00/autocmd.vim
+source ~/.config/nvim/00/cs_forest.vim
+
+

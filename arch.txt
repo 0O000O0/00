@@ -1,0 +1,325 @@
+# LINUX ARCH, installation guide.
+
+
+# prepare
+  #
+  ls      /sys/firmware/efi/efivars
+  setfont /usr/share/kbd/consolefonts/
+
+# partition disk
+  #
+  lsblk
+  fdisk -l
+  fdisk /dev/...
+  m
+  t
+
+# partition resize
+  #
+  lsblk
+  fdisk -l
+  fdisk /dev/...
+  p
+  d
+  n
+  e2fsck -f /dev/...
+  resize2fs /dev/...
+  blkid
+  mount / -o remount,rw
+  vim   /etc/fstab
+
+# format partition
+  #
+  mkswap        /dev/...
+  mkfs.fat -F32 /dev/...
+  mkfs.ext4     /dev/...
+
+# mount partition
+  #
+  swapon /dev/...
+  mount  /dev/... /mnt
+  mount  /dev/... /mnt/boot
+  mount  /dev/... /mnt/home
+  (umount /mnt -R)
+
+# connect wireless
+  #
+  iwctl
+  device  list
+  station wlan0 get-networks
+  station wlan0 connect WIFI_NAME
+  #
+  ping baidu.com
+  timedatectl   set-ntp true
+
+# install essential
+  #
+  reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+  pacstrap  /mnt base linux linux-firmware
+  genfstab  -U /mnt >> /mnt/etc/fstab
+
+# set essential
+  #
+  arch-chroot /mnt
+  #
+  ln -sf /usr/share/zoneinfo/Asia/Hongkong /etc/localtime
+  hwclock --systohc
+  #
+  vi /etc/locale.gen
+    en_US.UTF-8 UTF-8
+  locale-gen
+  vi /etc/locale.conf
+    LANG=en_US.UTF-8
+  vi /etc/hostname
+    MR-00
+  vi /etc/hosts
+    127.0.0.1	localhost
+    ::1		localhost
+    127.0.1.1	MR-00.localdomain	MR-00
+  #
+  mkinitcpio -P
+  passwd
+
+# boot loader
+  #
+  pacman -S grub amd-ucode os-prober
+  mkdir  /boot/grub
+  uname  -m
+  grub-install  --target=x86_64-efi --efi-directory=/boot
+  grub-mkconfig > /boot/grub/grub.cfg
+
+# creat user
+  #
+  useradd -m -g users -G wheel,storage,power oo
+  passwd oo
+  #
+  visudo   # (vi /etc/sudoer.tmp)
+    %wheel All=(All) All
+    Defaults rootpw
+  #
+  gpasswd -a oo root
+  gpasswd -d oo root
+
+# set pacman
+  #
+  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+  reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+  #
+  vi /etc/pacman.conf
+    [archlinuxcn]
+    SigLevel = Optional TrustedOnly
+    Server   = http://repo.archlinuxcn.org/$arch
+  #
+  pacman -Syu haveged
+  systemctl start haveged
+  systemctl enable haveged
+  rm -fr /etc/pacman.d/gnupg
+  pacman-key --init
+  pacman-key --populate archlinux
+  pacman-key --populate archlinuxcn
+  #
+  pacman -Syy
+  pacman -S archlinuxcn-keyring
+  pacman -S yaourt
+  yaourt -S yay
+
+# install base
+  #
+  pacman -S base-devel
+  pacman -S man
+  pacman -S networkmanager
+  pacman -S dhcpcd
+  pacman -S wpa_supplicant
+  #
+  systemctl enable NetworkManager
+  systemctl enable dhcpcd
+  systemctl status NetworkManager
+  systemctl status dhcpcd
+  #
+  pacman -S fish neovim ranger
+  chsh -s /usr/bin/fish
+  ln   -s /usr/bin/nvim /usr/bin/vi
+  #
+  reboot
+
+# connect wireless
+  #
+  pacman -S networkmanager
+  pacman -S dhcpcd
+  pacman -S wpa_supplicant
+  #
+  sudo gpasswd -a oo network
+  systemctl enable NetworkManager
+  systemctl enable dhcpcd
+  systemctl status NetworkManager
+  systemctl status dhcpcd
+  #
+  sudo ip link
+  sudo ip link set wlp1s0 up
+  sudo iw dev wlp1s0 scan | grep SSID
+  sudo wpa_passphrase WIFI_NAME PASSWORD > ~/.config/wpa/wpa.conf
+  sudo wpa_supplicant -i wlp1s0 -c ~/.config/wpa/wpa.conf &
+  sudo ping baidu.com
+
+# enhance vmware
+  #
+  pacman -S gtkmm
+  pacman -S open-vm-tools
+  pacman -S xf86-video-vmware
+  pacman -S xf86-input-vmmouse
+  #
+  systemctl enable vmtoolsd
+  systemctl enable vmware-vmblock-fuse
+  systemctl enable vmware-user-suid-wrapper
+
+# share samba
+  #
+  pacman -S samba
+  pacman -S smbclient
+  #
+  systemctl start smb
+  systemctl start nmb
+  systemctl status smb
+  systemctl status nmb
+  #
+  vi /etc/selinux/config
+    SELINUX=disabled
+  #
+  sudo smbpasswd -a oo
+  vi /etc/samba/smb.conf
+  testparm
+  #
+  sudo smbd -F -S
+  rm -rf /var/lib/samba/registry.tdb
+
+# mount ntfs
+  #
+  pacman -S ntfs-3g
+  #
+  vi /etc/fstab
+    /dev/nvme... /mnt/win_c ntfs-3g users,uid=1000,gid=100,fmask=0113,dmask=0002,locale=zh_CN.utf8         0 0
+    /dev/nvme... /mnt/win_c ntfs-3g users,noauto,uid=1000,gid=100,fmask=0113,dmask=0002,locale=zh_CN.utf8  0 0
+
+# mount vmdk
+  #
+  pacman -S util-linux
+  #
+  kpartx -av /home/00.vmdk
+  mount  /dev/mapper/loop1p1 /mnt/vmdk1
+  mount  /dev/mapper/loop1p2 /mnt/vmdk2
+  umount -R /mnt
+  kpartx -d /home/00.vmdk
+
+# drive alsa
+  #
+  sudo pacman -Ss alsa
+  sudo pacman -Ss pulseaudio
+  sudo pacman -S alsa-utils
+  sudo pacman -S alsa-plugins
+  sudo pacman -S alsa-tools
+  sudo pacman -S alsa-lib
+  sudo pacman -S alsa-oss
+  sudo pacman -S pulseaudio
+  sudo pacman -S pulseaudio-alsa
+  sudo pacman -S pulseaudio-bluetooth
+  #
+  sudo gpasswd -a oo audio
+  alsactl store
+  alsactl daemon
+  #
+  amixer sset Master unmute
+  amixer sset Speaker unmute
+  amixer sset Headphone unmute
+  alsamixer
+  speaker-test -c 2
+  #
+  aplay -l | grep card
+  vi ~/.asoundrc
+    pcm.!default {
+        type hw
+        card Audio
+    }
+
+    ctl.!default {
+        type hw
+        card Audio
+    }
+  #
+  vi /etc/modules-load.d/alsa.conf
+  vi /etc/modules-load.d/oss.conf
+    snd-seq-oss
+    snd-pcm-oss
+    snd-mixer-oss
+  modprobe snd-seq-oss
+  modprobe snd-pcm-oss
+  modprobe snd-mixer-oss
+
+# drive mesa
+  #
+  sudo pacman -Ss mesa
+  sudo pacman -Ss video
+  sudo pacman -S mesa
+  sudo pacman -S mesa-demos
+  sudo pacman -S mesa-vdpau
+  sudo pacman -S  libva-mesa-driver
+  sudo pacman -S opencl-mesa
+  sudo pacman -S glu
+  sudo pacman -S xf86-video-amdgpu
+  sudo pacman -S xf86-video-ati
+  sudo pacman -S vulkan-radeon
+  sudo pacman -S vulkan-mesa-layer
+  sudo pacman -S amdvlk
+  #
+  git clone catalyst-total
+  git clone amdgpu-pro-libgl
+  git clone opencl-amdgpu-pro-pal
+  git clone vulkan-amdgpu-pro
+  makepkg --syncdeps --rmdeps --clean --install --cleanbuild
+  makepkg -srciC
+  #
+  sudo gpasswd -a oo video
+  #
+  lspci -v | grep -A1 -e VGA -e 3D
+  vi /etc/modprobe.d/amdgpu.conf
+  	options amdgpu si_support=1
+  	options amdgpu cik_support=0
+  vi /etc/modprobe.d/radeon.conf
+  	options radeon si_support=0
+  	options radeon cik_support=0
+
+# install xorg
+  #
+  sudo pacman -S xorg-server
+  sudo pacman -S xorg-xinit
+  sudo pacman -S xorg-apps
+  sudo pacman -S xorg-twm
+  sudo pacman -S xorg-xclipboard
+
+# set lightdm
+  #
+  sudo pacman -S lightdm
+  sudo pacman -S lightdm-gtk-greeter
+  vi /etc/lightdm/lightdm.conf
+    logind-check-graphical=true
+  systemctl enable lightdm
+  systemctl start lightdm
+  #
+  vi /etc/lightdm/lightdm.conf
+    [Seat:*]
+    autologin-user=USER_NAME
+  vi /etc/lightdm/lightdm.conf
+    [Seat:*]
+    autologin-user=username
+    autologin-session=session
+  vi /etc/pam.d/lightdm
+    #%PAM-1.0
+    auth     sufficient pam_succeed_if.so user ingroup nopasswdlogin
+    auth     include    system-login
+  groupadd -r autologin
+  gpasswd  -a username autologin
+  groupadd -r nopasswdlogin
+  gpasswd  -a username nopasswdlogin
+  useradd -mG autologin,nopasswdlogin -s /bin/bash username
+
+
+

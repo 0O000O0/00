@@ -1,0 +1,26 @@
+you-get
+sudo pacman -S python
+pip3 install you-get
+pip3 install --upgrade you-get
+sudo rm /usr/bin/you-get
+sudo ln -s /home/oo/.local/bin/you-get /usr/bin/you-get
+
+
+virtualbox
+sudo pacman -S virtualbox
+sudo pacman -S virtualbox-ext-oracle
+sudo gpasswd -a oo vboxusers
+sudo gpasswd -a oo usbfs
+
+
+deepin-wine-wechat
+yay -S
+/opt/apps/com.qq.weixin.deepin/files/run.sh -d
+/opt/apps/com.qq.weixin.deepin/files/run.sh
+sudoln -s /opt/apps/com.qq.weixin.deepin/files/run.sh /usr/bin/dp-wechat
+
+deepin-wine-tim
+yay -S
+/opt/apps/com.qq.office.deepin/files/run.sh -d
+/opt/apps/com.qq.office.deepin/files/run.sh
+sudo ln -s /opt/apps/com.qq.office.deepin/files/run.sh /usr/bin/dp-tim

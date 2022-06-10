@@ -1,0 +1,32 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+
+
+# /dev/nvme0n1p2 LABEL=BOOT
+UUID=E998-6945                            /boot  vfat   	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/nvme0n1p6 LABEL=ARCH
+UUID=644320a6-b9fa-dc4c-bf60-5b9c221ef613	/      ext4   	rw,relatime	0 1
+
+# /dev/nvme0n1p5 LABEL=HOME
+UUID=689021cb-c4a8-7c4d-a1f8-d39c465b1979	/home  ext4   	rw,relatime	0 2
+
+
+# /dev/nvme0n1p2 LABEL=BOOT
+#/dev/nvme0n1p2  /home/02_BOOT  vfat   	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/nvme0n1p3 LABEL=WIN10
+/dev/nvme0n1p3  /boot/0000/0C_WIN10 ntfs-3g  users,uid=1000,gid=100,fmask=0113,dmask=0002,locale=zh_CN.utf8
+
+# /dev/nvme0n1p4 LABEL=FILE
+/dev/nvme0n1p4  /boot/0000/0D_FILE  ntfs-3g  users,uid=1000,gid=100,fmask=0113,dmask=0002,locale=zh_CN.utf8
+
+# /dev/nvme0n1p5 LABEL=HOME
+/dev/nvme0n1p5  /boot/0000/0E_HOME  ext4   	rw,relatime	0 2
+
+# /dev/nvme0n1p6 LABEL=ARCH
+/dev/nvme0n1p6  /boot/0000/0F_ARCH  ext4   	rw,relatime	0 1
+
+

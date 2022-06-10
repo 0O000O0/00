@@ -1,0 +1,147 @@
+# ALACRITTY config, color
+
+
+colors:
+  # theme Cyan
+
+
+  # Background opacity
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  #background_opacity: 0.88
+
+  # If `true`, bold text is drawn using the bright color variants.
+  draw_bold_text_with_bright_colors: true
+
+
+  # Default colors
+  primary:
+    background: '#0d1a1a'
+    foreground: '#b8cccc'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically
+    # if it is not present. If the bright foreground color is not set,
+    # or `draw_bold_text_with_bright_colors` is `false`,
+    # the normal foreground color will be used.
+    #dim_foreground: '#828482'
+    #bright_foreground: '#eaeaea'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor.
+  #
+  # Allowed values are CellForeground and CellBackground,
+  # which reference the affected cell, or hexadecimal colors like #ff00ff.
+  cursor:
+    text:   CellBackground
+    cursor: CellForeground
+
+  # Vi mode cursor colors
+  #
+  # Colors for the cursor when the vi mode is active.
+  #
+  # Allowed values are CellForeground and CellBackground,
+  # which reference the affected cell, or hexadecimal colors like #ff00ff.
+  #vi_mode_cursor:
+  #  text: CellBackground
+  #  cursor: CellForeground
+
+  # Search colors
+  #
+  # Colors used for the search bar and match highlighting.
+  #search:
+    # Allowed values are CellForeground and CellBackground,
+    # which reference the affected cell, or hexadecimal colors like #ff00ff.
+    #matches:
+      #foreground: '#000000'
+      #background: '#ffffff'
+    #focused_match:
+    #  foreground: CellBackground
+    #  background: CellForeground
+
+    #bar:
+      #background: '#c5c8c6'
+      #foreground: '#1d1f21'
+
+  # Line indicator
+  #
+  # Color used for the indicator displaying the position
+  # in history during search and vi mode.
+  #
+  # By default, these will use the opposing primary color.
+  #line_indicator:
+  #  foreground: None
+  #  background: None
+
+  # Selection colors
+  #
+  # Colors which should be used to draw the selection area.
+  #
+  # Allowed values are CellForeground and CellBackground,
+  # which reference the affected cell, or hexadecimal colors like #ff00ff.
+  #selection:
+    #text: CellBackground
+    #background: CellForeground
+
+  # Normal colors
+  normal:
+    red    : '#c06060'  #ff0000  #c06060
+    orange : '#c09060'  #ff8000  #c09060
+    yellow : '#c0c060'  #ffff00  #c0c060
+    lime   : '#90c060'  #80ff00  #90c060
+    green  : '#60c060'  #00ff00  #60c060
+    spring : '#60c090'  #00ff80  #60c090
+    cyan   : '#60c0c0'  #00ffff  #60c0c0
+    azure  : '#6090c0'  #0080ff  #6090c0
+    blue   : '#6060c0'  #0000ff  #6060c0
+    violet : '#9060c0'  #8000ff  #9060c0
+    magenta: '#c060c0'  #ff00ff  #c060c0
+    pink   : '#c06090'  #ff0080  #c06090
+
+  # Bright colors
+  # If the bright colors are not set, they will be calculated
+  # automatically based on the `normal` colors.
+  #bright:
+  #  red    : '#ff8080'  #ff8080  #c06060
+  #  orange : '#ffc080'  #ffc080  #c09060
+  #  yellow : '#ffff80'  #ffff80  #c0c060
+  #  lime   : '#c0ff80'  #c0ff80  #90c060
+  #  green  : '#80ff80'  #80ff80  #60c060
+  #  spring : '#80ffc0'  #80ffc0  #60c090
+  #  cyan   : '#80ffff'  #80ffff  #60c0c0
+  #  azure  : '#80c0ff'  #80c0ff  #6090c0
+  #  blue   : '#8080ff'  #8080ff  #6060c0
+  #  violet : '#c080ff'  #c080ff  #9060c0
+  #  magenta: '#ff80ff'  #ff80ff  #c060c0
+  #  pink   : '#ff80c0'  #ff80c0  #c06090
+
+  # Dim colors
+  # If the dim colors are not set, they will be calculated
+  # automatically based on the `normal` colors.
+  #dim:
+  #  red    : '#800000'  #800000  #c06060
+  #  orange : '#804000'  #804000  #c09060
+  #  yellow : '#808000'  #808000  #c0c060
+  #  lime   : '#408000'  #408000  #90c060
+  #  green  : '#008000'  #008000  #60c060
+  #  spring : '#008040'  #008040  #60c090
+  #  cyan   : '#008080'  #008080  #60c0c0
+  #  azure  : '#004080'  #004080  #6090c0
+  #  blue   : '#000080'  #000080  #6060c0
+  #  violet : '#400080'  #400080  #9060c0
+  #  magenta: '#800080'  #800080  #c060c0
+  #  pink   : '#800040'  #800040  #c06090
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  #indexed_colors: []
+
+

@@ -1,0 +1,74 @@
+# GRUB theme, a boot loeader.
+
+
+
+# general
+  title-text:      ""
+
+  message-color:   "#808080"
+  desktop-color:   "#c0c0c0"
+  desktop-image:   "desktop.jpg"
+
+  terminal-left:    "000%"
+  terminal-width:   "100%"
+  terminal-top:     "000%"
+  terminal-height:  "100%"
+  terminal-font:    "FreeMono Regular 20"
+  #terminal-border:  "10%"
+  #terminal-box:     "terminal_*.png"
+
+
+# title
++ label {
+	left   = 50%
+	width  = 50%
+	top    = 10%
+	height = 10%
+	text   = "GNU GRUB"
+	align  = "center"
+  font   = "FreeMono Bold 30"
+	color  = "#a0a0a0"
+}
+
+# menu
++ boot_menu {
+  left   = 60%
+  width  = 30%
+  top    = 20%
+  height = 60%
+  item_height     = 50
+  item_spacing    =  1
+  item_padding    =  1
+  item_icon_space =  0
+  item_font           = "FreeMono Regular 30"
+	selected_item_font  = "FreeMono Bold 30"
+  item_color          = "#a0a0a0"
+  selected_item_color = "#ffffff"
+}
+
+# timeout
++ label {
+  left   = 90%
+  width  = 10%
+  top    = 80%
+  height = 10%
+  id     = "__timeout__"
+  text   = "%d"
+	align  = "center"
+  font       = "FreeMono Bold 40"
+  color = "#ffffff"
+}
+
+# help
++ label {
+	left   = 50%
+	width  = 50%
+	top    = 90%
+	height = 10%
+	text   = "@KEYMAP_SHORT@"
+	align  = "center"
+  font   = "FreeMono Regular 20"
+	color  = "#ffffff"
+}
+
+

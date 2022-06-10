@@ -1,0 +1,102 @@
+# Rime user dictionary
+#@/db_name	wubi86
+#@/db_type	userdb
+#@/rime_version	1.7.3
+#@/tick	72
+#@/user_id	6301cce1-c293-40cb-8c09-92c68e1d1819
+ag 	七	c=1 d=1 t=8
+avrq 	切换	c=1 d=1 t=3
+ddhi 	大叔	c=1 d=1 t=60
+ddu 	套	c=1 d=1 t=70
+dndn 	尴尬	c=1 d=1 t=33
+ep 	爱	c=2 d=1.95123 t=53
+epwq 	爱你	c=1 d=1.03039 t=54
+fgsg 	干杯	c=1 d=1 t=72
+fh 	直	c=1 d=1 t=47
+fhw 	真	c=3 d=2.94128 t=50
+ftjb 	都	c=1 d=1 t=24
+fttk 	教程	c=1 d=1 t=71
+gd 	天	c=1 d=1 t=61
+gkp 	带	c=1 d=1 t=62
+i 	不	c=2 d=1.97531 t=30
+ifc 	法	c=1 d=1 t=72
+j 	是	c=3 d=2.89335 t=46
+ka 	呀	c=1 d=1 t=27
+lwty 	输入	c=1 d=0.995012 t=72
+mqq 	网	c=1 d=1 t=10
+p 	这	c=1 d=1 t=28
+pn 	官	c=1 d=1 t=9
+pwjq 	容易	c=1 d=1 t=26
+q 	我	c=4 d=3.73954 t=45
+r 	的	c=4 d=3.88304 t=55
+su 	样	c=1 d=1 t=29
+thfc 	自动	c=1 d=1 t=65
+tve 	很	c=3 d=2.85607 t=52
+txtu 	繁简	c=1 d=1 t=4
+tyuy 	入门	c=1 d=1 t=64
+uy 	六	c=1 d=1 t=7
+wg 	全	c=2 d=1.99005 t=69
+wgg 	伍	c=1 d=1 t=6
+wq 	你	c=5 d=4.64157 t=63
+wx 	化	c=1 d=1 t=66
+wxf 	华	c=1 d=1 t=58
+yl 	为	c=1 d=1 t=59
+encdftk 	套教程	c=0 d=0.1 t=71
+encewrq 	爱你的	c=0 d=0.1 t=55
+encfgpj 	都不容易	c=0 d=0.1 t=26
+encfhrq 	真的	c=0 d=0.1 t=51
+encfrfh 	真的真	c=0 d=0.1 t=50
+encfrfr 	真的真的	c=0 d=0.1 t=51
+encfrte 	真的很爱	c=0 d=0.1 t=53
+encfrtv 	真的很	c=0 d=0.1 t=52
+encftgi 	都不	c=0 d=0.1 t=25
+encgdgk 	天带	c=0 d=0.1 t=62
+encggwq 	天带你	c=0 d=0.1 t=63
+encgijg 	不是	c=0 d=0.1 t=31
+encgjtv 	不是很	c=0 d=0.1 t=32
+encgkwq 	带你	c=0 d=0.1 t=63
+encgpjk 	不容易呀	c=0 d=0.1 t=27
+encgpjq 	不容易	c=0 d=0.1 t=26
+encgwtu 	带你入门	c=0 d=0.1 t=64
+encjfrq 	是真的	c=0 d=0.1 t=41
+encjfrt 	是真的很	c=0 d=0.1 t=42
+encjgfh 	是直	c=0 d=0.1 t=47
+encjgfh 	是真	c=0 d=0.1 t=40
+encjgtv 	是很	c=0 d=0.1 t=32
+encjtdd 	是很尴尬	c=0 d=0.1 t=33
+encltif 	输入法	c=0 d=0.1 t=72
+encpjka 	容易呀	c=0 d=0.1 t=27
+encpnmq 	官网	c=1 d=1 t=16
+encrfrq 	的真的	c=0 d=0.1 t=51
+encrfrt 	的真的很	c=0 d=0.1 t=52
+encrqfh 	的真	c=0 d=0.1 t=50
+encrqtv 	的很	c=0 d=0.1 t=52
+encrtep 	的很爱	c=0 d=0.1 t=53
+encrtew 	的很爱你	c=0 d=0.1 t=54
+encsgjg 	样不是	c=0 d=0.1 t=31
+encsgjt 	样不是很	c=0 d=0.1 t=32
+encsugi 	样不	c=0 d=0.1 t=30
+enctddn 	很尴尬	c=0 d=0.1 t=33
+enctewq 	很爱你	c=0 d=0.1 t=54
+enctewr 	很爱你的	c=0 d=0.1 t=55
+enctfgi 	我都不	c=0 d=0.1 t=25
+enctfwx 	自动化	c=0 d=0.1 t=66
+enctjfh 	我是直	c=0 d=0.1 t=47
+enctjfh 	我是真	c=0 d=0.1 t=40
+enctjfr 	我是真的	c=0 d=0.1 t=41
+enctrft 	我都	c=0 d=0.1 t=24
+enctrjg 	我是	c=0 d=0.1 t=46
+enctvep 	很爱	c=0 d=0.1 t=53
+encuyag 	六七	c=0 d=0.1 t=8
+encwdft 	全套教程	c=0 d=0.1 t=71
+encwgdd 	全套	c=0 d=0.1 t=70
+encwguy 	伍六	c=0 d=0.1 t=7
+encwqrq 	你的	c=0 d=0.1 t=55
+encwtuy 	你入门	c=0 d=0.1 t=64
+encwuag 	伍六七	c=0 d=0.1 t=8
+encwxyl 	华为	c=0 d=0.1 t=59
+encwydh 	华为大叔	c=0 d=0.1 t=60
+encydhi 	为大叔	c=0 d=0.1 t=60
+encypsu 	这样	c=0 d=0.1 t=29
+encysgi 	这样不	c=0 d=0.1 t=30
+encysgj 	这样不是	c=0 d=0.1 t=31

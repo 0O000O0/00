@@ -1,0 +1,11 @@
+sudo rm -R /etc/pacman.d/gnupg/ # 删除gnupg目录及其文件
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --populate archlinuxcn
+
+sudo rm -rf /var/lib/pacman/db.lck
+
+作者：__KCN
+链接：https://www.jianshu.com/p/f78b4facb07d
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

@@ -1,0 +1,25 @@
+## ARCH Linux repository mirrorlist
+##
+
+
+
+## Worldwide
+##————————————————
+#Server = http://mirrors.evowise.com/archlinux/$repo/os/$arch
+#Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch
+##————————————————
+
+
+## China
+##————————————————
+## 清华大学
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
+## 中科大
+Server = https://mirrors.ustc.edu.cn/archlinux/stable/$repo/$arch
+Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+## aliyun
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
+##————————————————
+
+

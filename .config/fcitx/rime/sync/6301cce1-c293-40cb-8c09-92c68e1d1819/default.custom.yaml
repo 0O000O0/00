@@ -1,0 +1,19 @@
+# RIME config,
+
+
+patch:
+  schema_list:
+    - schema: wubi_pinyin
+    - schema: wubi86
+    - schema: luna_pinyin
+
+
+  switcher:
+    caption: "RIME 输入法"
+    abbreviate_options: true
+    fold_options: true
+    hotkeys:
+      - "Control+grave"
+    option_list_separator: "／"
+
+
